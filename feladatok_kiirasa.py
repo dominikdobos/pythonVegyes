@@ -15,3 +15,7 @@ def kiir():
     feladatok.feladat_6()
     print()
     feladatok.feladat_7()
+    print()
+    feladatok.feladat_8()
+    print()
+    feladatok.feladat_9()

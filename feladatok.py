@@ -192,3 +192,43 @@ def feladat_7():
         print(nem_szerepel[len(nem_szerepel) - 1])
     else:
         print("Minden számjegy található a kisorsolt számban!")
+
+
+def feladat_8():
+    print("8. Sorsolj ki egy 10 számjegyű számot. Írd ki azokat a 3 számjegyű számokat, "
+          "amelyek az eredeti számjegyekből összerakhatóak úgy, hogy a számjegyeik növekvő sorrenden állnak. "
+          "Ugyanazt a számot ne írd ki kétszer! Ha nincsenek ilyenek, akkor írd ki, hogy nincsenek ilyen számok!")
+
+
+def feladat_9():
+    print("9. Sorsolj ki egy 5 számjegyű számot. Írd ki, hogy van-e olyan számjegye, "
+          "amelyik nagyobb a többi számjegy összegénél! Ha van ilyen, írd ki melyik az! "
+          "Ha nincs ilyen, írd ki, hogy nincs ilyen számjegy!")
+
+    szam = random.randint(10000, 99999)
+
+    legnagyobb_szamjegy = 0
+
+    for i in range(len(str(szam))):
+        if legnagyobb_szamjegy < int(str(szam)[i]):
+            legnagyobb_szamjegy = int(str(szam)[i])
+
+    szamjegy_lista = []  # kivéve a legnagyobb számjegy
+    kivetel_atugrova = False
+    for i in range(len(str(szam))):
+        if int(str(szam)[i]) == legnagyobb_szamjegy and kivetel_atugrova == False:
+            kivetel_atugrova = True
+        elif int(str(szam)[i]) == legnagyobb_szamjegy and kivetel_atugrova == True:
+            szamjegy_lista.append(int(str(szam)[i]))
+        else:
+            szamjegy_lista.append(int(str(szam)[i]))
+
+    szamjegyek_osszege = 0
+    for i in range(len(szamjegy_lista)):
+        szamjegyek_osszege += szamjegy_lista[i]
+
+    print(f"Kisorsolt szám: {szam}")
+    if szamjegyek_osszege < legnagyobb_szamjegy and szamjegyek_osszege != 0:
+        print(f"A '{legnagyobb_szamjegy}' számjegy nagyobb, mint a többi számjegy összege.")
+    else:
+        print("Nincs olyan számjegy, ami nagyobb, mint a többi számjegy összege.")
