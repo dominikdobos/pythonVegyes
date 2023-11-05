@@ -104,6 +104,34 @@ def feladat_5():
           "Ha nincs ilyen, akkor írd ki, hogy nincs ilyen szám!")
 
     szam = random.randint(1000000000, 9999999999)
+    prim = []
+
+    for i in range(len(str(szam))):
+        str_szam = str(szam)[i]
+        if not(str(szam)[i] == "1" or str(szam)[i] == "0"):
+            for j in range(2, int((int(str_szam) ** 0.5) + 1)):
+                if int(str(szam)[i]) % j == 0:
+                    break
+            else:
+                szerepel_listaban = prim.count(int(str_szam))
+                if szerepel_listaban == 0:
+                    prim.append(int(str_szam))
+
+        for j in range(i+1, len(str(szam))):
+            str_szam += str(szam)[j]
+            for g in range(2, int((int(str_szam) ** 0.5) + 1)):
+                if int(str_szam) % g == 0:
+                    break
+            else:
+                szerepel_listaban = prim.count(int(str_szam))
+                if szerepel_listaban == 0:
+                    prim.append(int(str_szam))
+
+    print(f"Kisorsolt szám: {szam}")
+    prim.sort()
+    for i in range(len(prim)-1):
+        print(prim[i], end=", ")
+    print(prim[len(prim)-1])
 
 
 def feladat_6():
