@@ -1,3 +1,5 @@
 import feladatok
+import feladatok_kiirasa
 
-feladatok.feladat_3()
+feladatok_kiirasa.kiir()
+
