@@ -34,11 +34,15 @@ def feladat_2():
 
 
 def feladat_3():
-    szam = 1
     szamsor = []
+    szam = 1
     while not(len(szamsor) == 15):
+        str_szam = ""
         for i in range(len(str(szam))):
-            szamjegy = int(str(szam)[i])
-            szam = szamjegy
-
+            jelenlegi_szamjegy = int(str(szam)[i])
+            uj_szamjegy = jelenlegi_szamjegy * 2
+            str_szam += str(uj_szamjegy)
+        szam = int(str_szam)
         szamsor.append(szam)
+
+    print(szamsor[14])
