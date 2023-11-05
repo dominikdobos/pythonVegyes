@@ -129,9 +129,12 @@ def feladat_5():
 
     print(f"Kisorsolt szám: {szam}")
     prim.sort()
-    for i in range(len(prim)-1):
-        print(prim[i], end=", ")
-    print(prim[len(prim)-1])
+    if len(prim) > 0:
+        for i in range(len(prim)-1):
+            print(prim[i], end=", ")
+        print(prim[len(prim)-1])
+    else:
+        print("Nincs a kisorsolt számban prímszám!")
 
 
 def feladat_6():
@@ -163,3 +166,29 @@ def feladat_6():
         print(f"Legnagyobb növekvő sorrendben álló szemjegyek a kisorsolt számban: {legnagyobb}")
     else:
         print("Nincs növekvő sorrendben álló szám a kisorsolt számon belül!")
+
+
+def feladat_7():
+    print("7. Sorsolj ki egy 10 számjegyű számot. Írd ki azokat a számjegyeket, "
+          "amelyek nem fordulnak elő a számban! Ha nincs ilyen, írd ki, hogy nincs hiányzó számjegy!")
+
+    szam = random.randint(1000000000, 9999999999)
+    szamjegyek = []
+    nem_szerepel = []
+
+    for i in range(len(str(szam))):
+        szamjegyek.append(str(szam)[i])
+
+    for i in range(10):
+        szerepel_listaban = szamjegyek.count(str(i))
+        if szerepel_listaban == 0:
+            nem_szerepel.append(i)
+
+    print(f"Kisorsolt szám: {szam}")
+    if len(nem_szerepel) > 0:
+        print("Számjegyek amik nem szerepelnek a kisorsolt számban: ")
+        for i in range(len(nem_szerepel) - 1):
+            print(nem_szerepel[i], end=", ")
+        print(nem_szerepel[len(nem_szerepel) - 1])
+    else:
+        print("Minden számjegy található a kisorsolt számban!")

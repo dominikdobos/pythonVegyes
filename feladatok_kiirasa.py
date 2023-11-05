@@ -1,5 +1,6 @@
 import feladatok
 
+
 def kiir():
     feladatok.feladat_1()
     print()
@@ -12,3 +13,5 @@ def kiir():
     feladatok.feladat_5()
     print()
     feladatok.feladat_6()
+    print()
+    feladatok.feladat_7()
